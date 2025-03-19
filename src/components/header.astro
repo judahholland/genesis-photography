@@ -16,7 +16,7 @@ import Logo from "../assets/images/genesis-logo-light.png"
 </div>
 
 <!--Site Menu Overlay -->
-<div class="menu container-fluid">
+<div id="menu" class="container-fluid">
 
 </div>
 <style>
@@ -44,7 +44,7 @@ import Logo from "../assets/images/genesis-logo-light.png"
         stroke: var(--primary-light);
         stroke-dasharray: 100%;
         stroke-dashoffset: 0%;
-        transition: transform 0.3s, stroke-dashoffset .4s;
+        transition: transform 0.3s, stroke-dashoffset .4s, stroke .3s;
         transform-origin: center;
         stroke-width: 3px;
     }
@@ -84,6 +84,9 @@ import Logo from "../assets/images/genesis-logo-light.png"
         stroke-dashoffset: 0%;
     }
     /*** Mode Croix ***/
+    .hamburger-menu.menu-open line {
+        stroke: var(--primary-dark);
+    }
     .hamburger-menu.menu-open .hamburger-icon .top {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
@@ -116,28 +119,30 @@ import Logo from "../assets/images/genesis-logo-light.png"
     }
 
     /* Site Menu Styles */
-    .menu {
+    #menu {
         position: fixed;
         top: 0;
         left: 0;
         z-index: 99;
         height: 100%;
         background: var(--primary-light);
-
+        display: none;
     }
 </style>
 <script is:inline>
     document.addEventListener("DOMContentLoaded", function () {
         var menu = document.querySelector(".hamburger-menu");
         var button = document.querySelector(".hamburger-icon");
-        const menuOpen = document.querySelector(".menu")
+        const menuOpen = document.getElementById("menu");
 
         button.addEventListener("click", function () {
             if (menu.classList.contains("menu-open")) {
                 menu.classList.remove("menu-open");
+                menuOpen.style.display = "none"
                 return;
             }
             menu.classList.add("menu-open");
+            menuOpen.style.display = "block";
         });
     });
 </script>
