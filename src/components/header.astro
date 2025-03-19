@@ -1,10 +1,10 @@
 ---
-import Image from "astro/components/Image.astro";
-import Logo from "../assets/images/genesis-logo-light.png"
+
 ---
 <div class="header container-fluid row align-items-center justify-content-between">
     <div class="logo col-auto">
-        <Image src={Logo} alt="Logo"/>
+        <img id="light-logo" src="src/assets/images/genesis-logo-light.png" alt="Genesis Holland Photography Logo"/>
+        <img id="dark-logo" src="src/assets/images/genesis-logo-dark.png" alt="Genesis Holland Photography Logo"/>
     </div>
     <div class="hamburger-menu col-auto">
         <svg class="hamburger-icon">
@@ -17,7 +17,25 @@ import Logo from "../assets/images/genesis-logo-light.png"
 
 <!--Site Menu Overlay -->
 <div id="menu" class="container-fluid">
-
+    <div class="nav-container">
+        <ul class="nav flex-column align-cener">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Me</a>
+            </li>
+          </ul>
+    </div>
 </div>
 <style>
     .header {
@@ -32,6 +50,15 @@ import Logo from "../assets/images/genesis-logo-light.png"
     .logo img {
         width: 175px;
         height: auto;
+    }
+    .show {
+        display: block;
+        opacity: 1;
+        transition: opacity .3s;
+    }
+    .hide {
+        display: none;
+        opacity: 0;
     }
     .hamburger-icon {
         width: 30px;
@@ -127,6 +154,27 @@ import Logo from "../assets/images/genesis-logo-light.png"
         height: 100%;
         background: var(--primary-light);
         display: none;
+        padding-top: 130px;
+    }
+    .nav-container {
+        width: 100%;
+        height: 100%;
+        display:flex;
+        justify-content: center;
+    }
+    .nav-container > .nav {
+        align-items: center;
+    }
+    .nav-container > .nav li {
+        margin-bottom: 1rem;
+    }
+    .nav-container > .nav a {
+        font-family: 'Muli';
+        font-size: 1.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: var(--primary-dark);
+        letter-spacing: .3rem;
     }
 </style>
 <script is:inline>
@@ -134,15 +182,21 @@ import Logo from "../assets/images/genesis-logo-light.png"
         var menu = document.querySelector(".hamburger-menu");
         var button = document.querySelector(".hamburger-icon");
         const menuOpen = document.getElementById("menu");
+        const lightLogo = document.getElementById("light-logo")
+        const darkLogo = document.getElementById("dark-logo")
 
         button.addEventListener("click", function () {
             if (menu.classList.contains("menu-open")) {
                 menu.classList.remove("menu-open");
-                menuOpen.style.display = "none"
+                menuOpen.style.display = "none";
+                lightLogo.classList.add("show");
+                darkLogo.classList.remove("hide");
                 return;
             }
             menu.classList.add("menu-open");
             menuOpen.style.display = "block";
+            lightLogo.classList.add("hide");
+            darkLogo.classList.remove("show");
         });
     });
 </script>
