@@ -1,3 +1,7 @@
+---
+import 'bootstrap/dist/css/bootstrap.css'
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,7 +9,7 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Genesis Holland Photography</title>
 	</head>
 	<body>
 		<slot />
@@ -13,10 +17,58 @@
 </html>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@100..900&family=Yuji+Syuku&display=swap');
+	
+	:root {
+		--primary-light: #efede2;
+		--primary-dark: #4d504a;
+		--secondary-bg: #dad4c2;
+		--dark-grey: #a9a393;
+		--dark-orange: #c48561;
+		--light-pink: #dbc1af;
+		--dark-green: #708275;
+	}
+	@font-face {
+		font-family: Muli;
+		src: url('../assets/muli-1GDlj.ttf');
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html {
+		font-family: system-ui, 'Cinzel Decorative', 'Muli';
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Cinzel Decorative';
+		color: var(--dark-green);
+	}
+	h1 {
+		font-size: 5.6rem;
+	}
+	h2 {
+		font-size: 4.2rem;
+	}
+	h3 {
+		font-size: 3.5rem;;
+	}
+	h4 {
+		font-size: 2.4rem;
+	}
+	h5 {
+		font-size: 1.8rem;
+	}
+	p {
+		font-family: 'Muli';	
+		font-size: 1.8rem;
 	}
 </style>
