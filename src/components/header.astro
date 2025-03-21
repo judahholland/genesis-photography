@@ -3,7 +3,7 @@
 ---
 <div class="header container-fluid row align-items-center justify-content-between">
     <div class="logo col-auto">
-        <img id="light-logo" src="src/assets/images/genesis-logo-light.png" alt="Genesis Holland Photography Logo"/>
+        <img id="light-logo" class="show" src="src/assets/images/genesis-logo-light.png" alt="Genesis Holland Photography Logo"/>
         <img id="dark-logo" src="src/assets/images/genesis-logo-dark.png" alt="Genesis Holland Photography Logo"/>
     </div>
     <div class="hamburger-menu col-auto">
@@ -43,22 +43,28 @@
         top: 0;
         left: 0;
         z-index: 100;
-        background-color: var(--primary-dark);
         height: 130px;
         padding: 0 4%;
+    }
+    .logo {
+        position: relative;
+        transition: opacity ease .3s;
+        width: 175px;
+        height: 100%;
     }
     .logo img {
         width: 175px;
         height: auto;
+        visibility: hidden;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        opacity: 0;
     }
-    .show {
-        display: block;
+    .logo .show {
+        visibility: visible;
         opacity: 1;
         transition: opacity .3s;
-    }
-    .hide {
-        display: none;
-        opacity: 0;
     }
     .hamburger-icon {
         width: 30px;
@@ -164,9 +170,7 @@
     }
     .nav-container > .nav {
         align-items: center;
-    }
-    .nav-container > .nav li {
-        margin-bottom: 1rem;
+        gap: 1.5rem;
     }
     .nav-container > .nav a {
         font-family: 'Muli';
@@ -175,7 +179,13 @@
         text-transform: uppercase;
         color: var(--primary-dark);
         letter-spacing: .3rem;
+        background: linear-gradient(to right, var(--primary-dark) 0%, var(--primary-dark) 100%) 0px 95% / 0px 1px no-repeat;
+        transition: ease .2s;
     }
+    .nav-container > .nav a:hover {
+        background-size: 100% 1px;
+    }
+
 </style>
 <script is:inline>
     document.addEventListener("DOMContentLoaded", function () {
@@ -190,13 +200,14 @@
                 menu.classList.remove("menu-open");
                 menuOpen.style.display = "none";
                 lightLogo.classList.add("show");
-                darkLogo.classList.remove("hide");
+                darkLogo.classList.remove("show")
                 return;
             }
+            
             menu.classList.add("menu-open");
             menuOpen.style.display = "block";
-            lightLogo.classList.add("hide");
-            darkLogo.classList.remove("show");
+            lightLogo.classList.remove("show");
+            darkLogo.classList.add("show")
         });
     });
 </script>

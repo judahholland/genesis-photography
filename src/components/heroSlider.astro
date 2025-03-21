@@ -1,0 +1,104 @@
+---
+import Image from "astro/components/Image.astro";
+import FirstImg from "../assets/images/000_2733.jpg";
+import SecondImg from "../assets/images/000_3576.jpg";
+import ThirdImg from "../assets/images/DSC_8353.jpg";
+import Button from "./button.astro";
+---
+<div id="hero" class="container-fluid">
+    <div class="hero-wrapper container-fluid row justify-content-center align-items-center text-center g-20">
+        <h1>Genesis Holland
+            <br/>
+            <span>Photography</span>
+        </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua.</p>
+        <Button href="#" text="Book Now"/>
+    </div>
+
+    <!--Background Image Slider -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <Image src={SecondImg} alt="Young couple in the sun"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={ThirdImg} alt="Belly of a pregnant woman"/>
+            </div>
+            <div class="swiper-slide">
+                <Image src={FirstImg} alt="Feet of newborn baby"/>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-overlay"></div>
+</div>
+<style>
+    #hero {
+        height: 100vh;
+        background: var(--primary-dark);
+        padding: 0;
+    }
+    .hero-wrapper {
+        position: relative;
+        flex-direction: column;
+        height: 100%;
+        z-index: 3;
+    }
+    .hero-wrapper h1 {
+        font-family: 'Cinzel Decorative';
+        font-size: 7rem;
+        color: var(--primary-light);
+    }
+    .hero-wrapper h1 span {
+        font-size: 5.4rem;
+        letter-spacing: 2rem;
+        text-align: center;
+    }
+    .hero-wrapper p {
+        font-family: 'Muli Light';
+		font-size: 1.8rem;
+        color: var(--primary-light);
+        font-weight: 400;
+    }
+
+    /* Swipper CSS */
+    .mySwiper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-slide:nth-of-type(1) img {
+        object-position: 50% 100%;
+    }
+    .swiper-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, .2);
+        z-index: 2;
+    }
+</style>
+<script>
+    import Swiper from "swiper/bundle";
+    import "swiper/css/bundle";
+
+    var swiper = new Swiper('.mySwiper', {
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        autoplay: {
+            delay: 5000,
+        },
+        allowTouchMove: false,
+    });
+</script>
