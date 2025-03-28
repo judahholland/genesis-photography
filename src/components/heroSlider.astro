@@ -12,7 +12,7 @@ import Button from "./button.astro";
             <span>Photography</span>
         </h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua.</p>
-        <Button href="#" text="Book Now"/>
+        <Button href="#" text="Book Now" style="margin-top: 1rem;"/>
     </div>
 
     <!--Background Image Slider -->
@@ -42,16 +42,32 @@ import Button from "./button.astro";
         flex-direction: column;
         height: 100%;
         z-index: 3;
+        gap: 2rem;
     }
     .hero-wrapper h1 {
+        position: relative;
         font-family: 'Cinzel Decorative';
         font-size: 7rem;
         color: var(--primary-light);
+        width: auto;
     }
     .hero-wrapper h1 span {
         font-size: 5.4rem;
         letter-spacing: 2rem;
         text-align: center;
+    }
+    .hero-wrapper h1::after {
+        position: absolute;
+        content: "";
+        top: -5rem;
+        right: -12rem;
+        width: 20rem;
+        height: 19rem;
+        transform: rotate(10deg);
+        z-index: -1;
+        background: url('../assets/images/Asset-7.png');
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     .hero-wrapper p {
         font-family: 'Muli Light';

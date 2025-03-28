@@ -2,9 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/header.astro';
 import HeroSlider from '../components/heroSlider.astro';
+import Image from 'astro/components/Image.astro';
+import flower1 from '../assets/images/Asset 5.png'
+import ServiceCards from './service-cards.astro';
 ---
 
 <Layout>
 	<Header/>
 	<HeroSlider/>
+	<div class="row about justify-content-center container">
+		<div class="col-8 text-center">
+			<Image class="about-flower" src={flower1} alt="flower clipart"/>
+			<h2>Your Story Deserves To Be Told</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+	<div class="services container-fluid">
+		<h2>My Services</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		<ServiceCards/>
+	</div>
+	
 </Layout>
+<style>
+	.about {
+		padding: 8rem 0;
+	}
+	.about-flower {
+		width: 25rem;
+		height: auto;
+		margin-bottom: 1rem;
+	}
+	.services {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 6rem 0;
+	}
+</style>

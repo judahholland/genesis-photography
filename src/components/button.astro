@@ -2,10 +2,11 @@
 interface props {
     href: string,
     text: string,
+    style: string,
 }
-const {href, text } = Astro.props;
+const {href, text, style } = Astro.props;
 ---
-<a class="button" href={href}>
+<a class="button" href={href} style=`${style}`>
     <span>{text}</span>
 </a>
 <style>
@@ -19,6 +20,7 @@ const {href, text } = Astro.props;
         border: 1px solid var(--primary-light);
         color: var(--primary-light);
         text-decoration: none;
+        transition: ease .3s;
     }
     .button::before {
         position: absolute;
@@ -28,11 +30,13 @@ const {href, text } = Astro.props;
         width: 0;
         height: 100%;
         background: var(--primary-light);
+        z-index: -1;
+        transition: ease .3s;
     }
     .button:hover {
         color: var(--primary-dark);
     }
-    .button:hover::after {
+    .button:hover::before {
         width: 100%;
     }
 </style>

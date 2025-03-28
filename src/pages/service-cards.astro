@@ -1,0 +1,76 @@
+---
+import Image from "astro/components/Image.astro";
+import Family from '../assets/images/DSC_7691 (1).jpg'
+import Newborn from '../assets/images/000_3855.jpg'
+import Birth from '../assets/images/DSC_9952.jpg'
+---
+<div class="service-cards-wrapper container-fluid">
+    <div class="service-cards container">
+        <div class="service-card">
+            <Image class="service-img" src={Family} alt="Smiling Family"/>
+            <h3 class="service-title">Families</h3>
+        </div>
+        <div class="service-card">
+            <Image class="service-img" src={Birth} alt="Smiling Family"/>
+            <h3 class="service-title">Births</h3>
+        </div>
+        <div class="service-card">
+            <Image class="service-img" src={Newborn} alt="Newborn Baby"/>
+            <h3 class="service-title">Newborns</h3>
+        </div>
+    </div>
+</div>
+
+<style>
+    .service-cards-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+    }
+    .service-cards {
+        display: flex;
+    }
+    .service-card {
+        position: relative;
+        height: 54rem;
+        width: 33.333%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: ease .4s;
+        color: var(--primary-light);
+    }
+    .service-img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: 100%;
+        z-index: -1;
+    }
+    .show {
+        width: 45%;
+        transition: ease .4s;
+    }
+</style>
+<script is:inline>
+    const cards = document.querySelectorAll(".service-card");
+
+    cards.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+            cards.forEach((otherCard) => {
+                if (otherCard !== item && otherCard.classList.contains("show")) {
+                    otherCard.classList.remove("show");
+                }
+            });
+
+            item.classList.add("show");
+        })
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove("show");
+        })
+    })
+</script>
