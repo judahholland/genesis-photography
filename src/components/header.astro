@@ -1,7 +1,7 @@
 ---
 
 ---
-<div class="header container-fluid row align-items-center justify-content-between">
+<div id="header" class="header container-fluid align-items-center justify-content-between">
     <div class="logo col-auto">
         <img id="light-logo" class="show" src="src/assets/images/genesis-logo-light.png" alt="Genesis Holland Photography Logo"/>
         <img id="dark-logo" src="src/assets/images/genesis-logo-dark.png" alt="Genesis Holland Photography Logo"/>
@@ -39,11 +39,12 @@
 </div>
 <style>
     .header {
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 100;
-        height: 130px;
+        height: 140px;
         padding: 0 4%;
     }
     .logo {
@@ -151,6 +152,10 @@
         stroke-dashoffset: 0%;
     }
 
+    .header-scroll {
+        background: var(--dark-green);
+        transition: ease .3s;
+    }
     /* Site Menu Styles */
     #menu {
         position: fixed;
@@ -192,8 +197,10 @@
         var menu = document.querySelector(".hamburger-menu");
         var button = document.querySelector(".hamburger-icon");
         const menuOpen = document.getElementById("menu");
-        const lightLogo = document.getElementById("light-logo")
-        const darkLogo = document.getElementById("dark-logo")
+        const lightLogo = document.getElementById("light-logo");
+        const darkLogo = document.getElementById("dark-logo");
+        const header = document.getElementById("header");
+        var scrollTrigger = 50
 
         button.addEventListener("click", function () {
             if (menu.classList.contains("menu-open")) {
@@ -208,6 +215,15 @@
             menuOpen.style.display = "block";
             lightLogo.classList.remove("show");
             darkLogo.classList.add("show")
+            header.style.background = "transparent";
         });
+
+        window.onscroll = () => {
+            if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
+                header.style.background = "var(--dark-green)"
+            } else {
+                header.style.background = "transparent";
+            }
+        }
     });
 </script>
