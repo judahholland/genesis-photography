@@ -1,0 +1,92 @@
+---
+
+---
+<div class="tab-section container-fluid">
+    <div class="tabs">
+      <div class="tab" data-image="/images/DSC_7936.webp">
+        <p>01</p>
+        <h3>Franz Family</h3>
+    </div>
+      <div class="tab" data-image="/images/DSC_0626-2.webp"><p>02</p><h3>Blaise & Calum</h3></div>
+      <div class="tab" data-image="/images/DSC_9971.webp"><p>03</p><h3>Victoria's Birth</h3></div>
+    </div>
+    <div class="image-display">
+      <img id="displayImage" class="tab-image" src="/images/DSC_7936.webp" alt="Tab Image" />
+    </div>
+  </div>
+<style>
+.tab-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 12rem 0 8rem 4rem;
+}
+.tabs {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tab {
+  padding: 2rem 4rem;
+  cursor: pointer;
+}
+.tab p {
+    font-size: 1.6rem;
+    letter-spacing: .3rem;
+}
+.tab h3 {
+    width: fit-content;
+    background: linear-gradient(to right, var(--primary-dark) 0%, var(--primary-dark) 100%) 0px 95% / 0px 1.5px no-repeat;
+    transition: ease .2s;
+}
+.tab:hover h3 {
+    background-size: 100% 1.5px;
+}
+.image-display {
+  width: 65%;
+  height: 50rem;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.tab-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 1;
+}
+img.slide-out {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+img.slide-in {
+  transform: translateX(100%);
+  opacity: 0;
+}
+img.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+</style>
+<script is:inline>
+    const tabs = document.querySelectorAll('.tab');
+    const displayImage = document.getElementById('displayImage');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('mouseenter', () => {
+        const newSrc = tab.getAttribute('data-image');
+        displayImage.style.opacity = 0;
+        setTimeout(() => {
+            displayImage.src = newSrc;
+            displayImage.style.opacity = 1;
+        }, 150);
+        });
+    });
+</script>

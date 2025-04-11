@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/header.astro';
-import HeroSlider from '../components/heroSlider.astro';
+import HeroSlider from '../components/home/heroSlider.astro';
 import Image from 'astro/components/Image.astro';
 import flower1 from '../assets/images/Asset 5.png'
 import ServiceCards from './service-cards.astro';
 import QuickLinks1 from '../assets/images/DSC_0674.jpg';
 import QuickLinks2 from '../assets/images/DSC_7735.jpg'
+import Portfolio from '../components/home/portfolio.astro';
 ---
 
 <Layout>
@@ -28,27 +29,27 @@ import QuickLinks2 from '../assets/images/DSC_7735.jpg'
 				<Image src={QuickLinks1} alt="Woman holding a baby at sunset"/>
 			</div>
 			<div class="col-4 text-center">
-				<div class="quick-link">
+				<a href="#" class="quick-link">
 					<h4>About Me</h4>
 					<p>Get to know me</p>
 					<svg data-slot="icon" fill="none" stroke-width="1" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
 					</svg>
-				</div>
-				<div class="quick-link">
+				</a>
+				<a href="#" class="quick-link">
 					<h4>Portfolio</h4>
 					<p>Checkout my recent shoots</p>
 					<svg data-slot="icon" fill="none" stroke-width="1" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
 					</svg>
-				</div>
-				<div class="quick-link">
+				</a>
+				<a href="#" class="quick-link">
 					<h4>Information</h4>
 					<p>Checkout services and pricing</p>
 					<svg data-slot="icon" fill="none" stroke-width="1" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
 					</svg>
-				</div>
+				</a>
 			</div>
 			<div class="col-4">
 				<Image src={QuickLinks2} alt="Woman sitting with her two children"/>
@@ -59,6 +60,7 @@ import QuickLinks2 from '../assets/images/DSC_7735.jpg'
 		<h2>My Services</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		<ServiceCards/>
+		<Portfolio/>
 	</div>
 	
 </Layout>
@@ -97,9 +99,15 @@ import QuickLinks2 from '../assets/images/DSC_7735.jpg'
 	.quick-links div:nth-of-type(2) {
 		padding: 6rem;
 		background: var(--secondary-bg);
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+	}
+	.quick-link {
+		text-decoration: none;
 	}
 	.quick-link h4 {
-		color: var(--dark-green);
+		color: var(--primary-dark);
 	}
 	.quick-link p {
 		color: var(--p-light);
@@ -108,6 +116,10 @@ import QuickLinks2 from '../assets/images/DSC_7735.jpg'
 	.quick-link svg {
 		width: 50px;
 		stroke: var(--primary-dark);
+		transition: ease .2s;
+	}
+	.quick-link svg:hover {
+		stroke: var(--light-pink);
 	}
 	.services {
 		display: flex;
