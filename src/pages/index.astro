@@ -3,11 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/header.astro';
 import HeroSlider from '../components/home/heroSlider.astro';
 import Image from 'astro/components/Image.astro';
-import flower1 from '../assets/images/Asset 5.png'
+import flower1 from '../assets/images/Asset 5.png';
+import flower2 from '../assets/images/Asset 9.png';
 import ServiceCards from './service-cards.astro';
 import QuickLinks1 from '../assets/images/DSC_0674.jpg';
-import QuickLinks2 from '../assets/images/DSC_7735.jpg'
+import QuickLinks2 from '../assets/images/DSC_7735.jpg';
 import Portfolio from '../components/home/portfolio.astro';
+import Headshot1 from '../assets/images/IMG_0767.JPG';
+import Headshot2 from '../assets/images/000_7584.jpg';
 ---
 
 <Layout>
@@ -60,9 +63,33 @@ import Portfolio from '../components/home/portfolio.astro';
 		<h2>My Services</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		<ServiceCards/>
-		<Portfolio/>
 	</div>
-	
+	<Portfolio/>
+	<div class="about-me container-fluid">
+		<div class="container">
+			<div class="row about-me-row1">
+				<div class="col-4">
+					<Image class="headshot1" src={Headshot1} alt='Genesis Holland'/>
+				</div>
+				<div class="col-auto about-me-heading">
+					<h2>Meet the Girl <br>Behind the Camera</h2>
+				</div>
+				<Image class="flower2" src={flower2} alt="Flower"/>
+			</div>
+			<div class="row about-me-row2">
+				<div class="col-6 about-me-img">
+					<Image class="headshot2" src={Headshot2} alt='Genesis Holland'/>
+				</div>
+				<div class="col-6 about-me-text">
+					<h3>Genesis Holland</h3>
+					<p>Hey friends! I'm Genesis Holland, and I'm stoked to have you here!
+
+						I am passionate about capturing the simple things in life, the sacred moments that are here and gone in a blink of an eye, and most importantly telling your story. I am newly married to my best friend, and we currently live in Athens, GA with our pup. I'm a part-time barista at an adorable local coffee shop, where I get to combine my love for craft coffee and serving the community.</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 </Layout>
 <style>
 	.about {
@@ -126,5 +153,51 @@ import Portfolio from '../components/home/portfolio.astro';
 		flex-direction: column;
 		align-items: center;
 		padding: 6rem 0;
+	}
+	.about-me {
+		position: relative;
+		margin-top: -6rem;
+		padding: 16rem 0 0 4rem;
+		background: var(--secondary-bg);
+	}
+	.about-me .about-me-row1 {
+		position: relative;
+	}
+	.about-me .flower2 {
+		position: absolute;
+		top: -15rem;
+		right: 0;
+		width: 40rem;
+		height: 20rem;
+		object-fit: contain;
+		transform: rotate(33deg);
+		z-index: 10;
+	}
+	.about-me .headshot1 {
+		width: 95%;
+		height: 450px;
+		object-fit: cover;
+		object-position: 50% 100%;
+	}
+	.about-me .about-me-heading {
+		padding: 5rem 0 0 2rem;
+	}
+	.about-me .about-me-row2 {
+		position: relative;
+		z-index: 5;
+		margin-top: -18rem;
+	}
+	.about-me .about-me-row2 .about-me-img {
+		display: flex;
+		justify-content: flex-end;
+	}
+	.about-me .headshot2 {
+		width: 75%;
+		height: 350px;
+		object-fit: cover;
+		border: 1rem solid var(--secondary-bg);
+	}
+	.about-me .about-me-text {
+		padding: 4rem 0 0 2rem;
 	}
 </style>
