@@ -9,12 +9,11 @@ import ServiceCards from './service-cards.astro';
 import QuickLinks1 from '../assets/images/DSC_0674.jpg';
 import QuickLinks2 from '../assets/images/DSC_7735.jpg';
 import Portfolio from '../components/home/portfolio.astro';
-import Headshot1 from '../assets/images/IMG_0767.JPG';
+import Headshot1 from '../assets/images/IMG_0767.jpg';
 import Headshot2 from '../assets/images/000_7584.jpg';
 ---
 
 <Layout>
-	<Header/>
 	<HeroSlider/>
 	<div class="about container">
 		<div class="row justify-content-center">
@@ -32,21 +31,21 @@ import Headshot2 from '../assets/images/000_7584.jpg';
 				<Image src={QuickLinks1} alt="Woman holding a baby at sunset"/>
 			</div>
 			<div class="col-4 text-center">
-				<a href="#" class="quick-link">
+				<a href="/about" class="quick-link">
 					<h4>About Me</h4>
 					<p>Get to know me</p>
 					<svg data-slot="icon" fill="none" stroke-width="1" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
 					</svg>
 				</a>
-				<a href="#" class="quick-link">
+				<a href="/gallery" class="quick-link">
 					<h4>Portfolio</h4>
 					<p>Checkout my recent shoots</p>
 					<svg data-slot="icon" fill="none" stroke-width="1" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
 					</svg>
 				</a>
-				<a href="#" class="quick-link">
+				<a href="/pricing" class="quick-link">
 					<h4>Information</h4>
 					<p>Checkout services and pricing</p>
 					<svg data-slot="icon" fill="none" stroke-width="1" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -88,7 +87,12 @@ import Headshot2 from '../assets/images/000_7584.jpg';
 				</div>
 			</div>
 		</div>
-		
+	</div>
+	<div class="container-fluid follow-me text-center">
+		<a href="https://www.instagram.com/genesishollandphoto/" class="follow-me-link">
+			<h2>Follow Me On Instagram</h2>
+			<p>@genesishollandphoto</p>
+		</a>
 	</div>
 </Layout>
 <style>
@@ -157,7 +161,7 @@ import Headshot2 from '../assets/images/000_7584.jpg';
 	.about-me {
 		position: relative;
 		margin-top: -6rem;
-		padding: 16rem 0 0 4rem;
+		padding: 16rem 0 10rem 4rem;
 		background: var(--secondary-bg);
 	}
 	.about-me .about-me-row1 {
@@ -200,4 +204,18 @@ import Headshot2 from '../assets/images/000_7584.jpg';
 	.about-me .about-me-text {
 		padding: 4rem 0 0 2rem;
 	}
-</style>
+	.follow-me {
+		background: var(--secondary-bg);
+		padding: 6rem 0;
+		text-align: center;
+		text-decoration: none;
+	}
+	.follow-me-link {
+		text-decoration: none;
+	}
+	.follow-me p {
+		font-style: italic;
+		color: var(--p-light);
+		text-decoration: none;
+	}
+	</style>

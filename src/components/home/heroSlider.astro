@@ -3,7 +3,7 @@ import Image from "astro/components/Image.astro";
 import FirstImg from "../../assets/images/000_2733.jpg";
 import SecondImg from "../../assets/images/000_3576.jpg";
 import ThirdImg from "../../assets/images/DSC_8353.jpg";
-import Button from "../button.astro";
+import ButtonLight from "../buttonLight.astro";
 ---
 <div id="hero" class="container-fluid">
     <div class="hero-wrapper container-fluid row justify-content-center align-items-center text-center g-20">
@@ -12,7 +12,7 @@ import Button from "../button.astro";
             <span>Photography</span>
         </h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua.</p>
-        <Button href="#" text="Book Now" style="margin-top: 1rem;"/>
+        <ButtonLight href="#" text="Book Now" style="margin-top: 1rem;"/>
     </div>
 
     <!--Background Image Slider -->
@@ -34,7 +34,6 @@ import Button from "../button.astro";
 <style>
     #hero {
         height: 100vh;
-        background: var(--primary-dark);
         padding: 0;
     }
     .hero-wrapper {
@@ -43,6 +42,7 @@ import Button from "../button.astro";
         height: 100%;
         z-index: 3;
         gap: 2rem;
+        padding-top: 12rem;
     }
     .hero-wrapper h1 {
         position: relative;

@@ -1,0 +1,212 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import HeroImage from '../assets/images/000_3820.jpg';
+import ButtonDark from "../components/buttonDark.astro";
+import Flower1 from '../assets/images/Asset 5.png';
+import Flower2 from '../assets/images/Asset-7.png';
+import Maternity from '../assets/images/DSC_8442.jpg';
+import Newborn from '../assets/images/000_3946.jpg';
+import Family from '../assets/images/DSC_7691.jpg';
+import Birth from '../assets/images/DSC_9952.jpg';
+import Baby from '../assets/images/DSC_1886.jpg';
+---
+
+<Layout>
+    <div class="hero container-fluid d-flex align-items-end">
+        <div class="row">
+            <div class="col">
+                <h1>The <br>Investment.</h1>
+            </div>
+        </div>
+        <Image src={HeroImage} alt="Women holding her baby"/>
+        <Image class="flower-1" src={Flower1} alt="Flower"/>
+    </div>
+    <div class="intro container d-flex text-center flex-column align-items-center">
+        <p>Your story is worth preserving.</p>
+        <h2>Your Moments, Beautifully Captured</h2>
+        <p>Every season of life brings something new and beautiful. Whether you're preparing to welcome a baby, capturing the joy of your growing family, or documenting one of life's biggest milestones, these sessions are designed to honor your story in a natural and meaningful way.</p>
+    </div>
+    <div class="service container-fluid row">
+        <div class="service-text col-7">
+            <div class="service-title d-flex justify-content-between">
+                <h2>Maternity Sessions</h2>
+                <h5>$200</h5>
+            </div>
+            <p>Celebrate the beauty and strength of motherhood with a relaxed one-hour session either outdoors or in your home. I focus on creating a peaceful, empowering space where you can feel radiant and completely yourself. You'll receive 30+ edited images that reflect this special chapter.</p>
+            <ButtonDark href="#" text="Book Now" style="margin-top: 2rem;"/>
+        </div>
+        <div class="col-5 service-img-con">
+            <Image class="service-image" src={Maternity} alt="Pregnant woman standing in the road"/>
+        </div>
+        
+    </div>
+    <div class="spacer bg-2 container-fluid"></div>
+    <div class="service bg-2 container-fluid row">
+        <div class="col-5 service-img-con">
+            <Image class="service-image" src={Newborn} alt="Newborn Baby"/>
+        </div>
+        <div class="service-text col-7">
+            <div class="service-title d-flex justify-content-between">
+                <h2>Newborn Sessions</h2>
+                <h5>$300</h5>
+            </div>
+            <p>These gentle, in-home lifestyle sessions are designed to capture your baby's earliest days in the comfort of your space. With a natural approach and a focus on connection, this session delivers 40+ images full of warmth, love, and tiny details you'll never want to forget.</p>
+            <ButtonDark href="#" text="Book Now" style="margin-top: 2rem; z-index:1;"/>
+        </div>
+        <Image class="flower-2" src={Flower2} alt="Flower"/>
+    </div>
+    <div class="spacer container-fluid"></div>
+    <div class="service container-fluid row">
+        <div class="service-text col-7">
+            <div class="service-title d-flex justify-content-between">
+                <h2>Family Sessions</h2>
+                <h5>$300</h5>
+            </div>
+            <p>Bring the whole crew and let's have some fun! This one-hour session is perfect for capturing real-life connection, movement, and laughter. With up to 10 people included, you'll walk away with 50+ edited images that show the love and personality of your family.</p>
+            <ButtonDark href="#" text="Book Now" style="margin-top: 2rem;"/>
+        </div>
+        <div class="col-5 service-img-con">
+            <Image class="service-image" src={Family} alt="Family"/>
+        </div>
+    </div>
+    <div class="spacer bg-2 container-fluid"></div>
+    <div class="service bg-2 container-fluid row">
+        <div class="col-5 service-img-con">
+            <Image class="service-image" src={Birth} alt="Newborn Baby"/>
+        </div>
+        <div class="service-text col-7">
+            <div class="service-title d-flex justify-content-between">
+                <h2>Birth Photography</h2>
+                <h5>$900</h5>
+            </div>
+            <p>This is the most raw, powerful, and sacred story you'll ever tell. I'll be on-call starting at 37 weeks, ready to document your birth journey with care and respect. With unlimited coverage and 50+ edited images, your birth story will be told in a way that honors every emotion and moment.</p>
+            <ButtonDark href="#" text="Book Now" style="margin-top: 2rem; z-index:1;"/>
+        </div>
+    </div>
+    <div class="spacer container-fluid"></div>
+    <div class="service container-fluid row">
+        <div class="service-text col-7">
+            <div class="service-title d-flex justify-content-between">
+                <h2>Milestone/Baby Session</h2>
+                <h5>$200</h5>
+            </div>
+            <p>Celebrate each new stage in your baby's first year with a one-hour outdoor session full of personality and play. These sessions are perfect for birthdays, sitting milestones, or just because. You'll receive 30+ vibrant, joyful images to mark the moment.</p>
+            <ButtonDark href="#" text="Book Now" style="margin-top: 2rem;"/>
+        </div>
+        <div class="col-5 service-img-con">
+            <Image class="service-image" src={Baby} alt="Family"/>
+        </div>
+    </div>
+    <div class="bundle container text-center d-flex flex-column align-items-center">
+        <h2>Bundle Discounts Available!</h2>
+        <p>Planning for multiple sessions? Book two or more (like maternity + newborn or birth + newborn) and receive a discounted rate. Let’s document your story from bump to baby and beyond.</p>
+    </div>
+</Layout>
+<style>
+    .hero {
+        height: 50rem;
+        position: relative;
+        padding: 0 4% 8rem 4%;
+    }
+    .hero .row {
+        position: relative;
+        z-index: 1;
+    }
+    .hero h1 {
+        color: var(--primary-light);
+    }
+    .hero img:nth-of-type(1) {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        transform: scaleX(-1);
+    }
+    .flower-1 {
+        position: absolute;
+        bottom: -10rem;
+        right: 4rem;
+        width: 40rem;
+        height: auto;
+        object-fit: contain;
+        transform: rotate(15deg);
+    }
+    .intro {
+        padding: 10rem 0;
+    }
+    .intro h2 {
+        margin-bottom: 2rem;
+    }
+    .intro p:nth-of-type(1) {
+        font-style: italic;
+        font-size: 1.6rem;
+        color: var(--light-pink);
+    }
+    .intro p:nth-of-type(2) {
+        width: 75%;
+        color: var(--p-light);
+    }
+    .service {
+        padding: 0;
+        position: relative;
+    }
+    .service-text {
+        padding: 4rem 2% 0 4%;
+    }
+    .service-text:nth-of-type(2n) {
+        padding: 4rem 4% 0 2%;
+    }
+    .service-title {
+        height: 6rem;
+        margin-bottom: 3rem;
+    }
+    .service-title h2 {
+        font-size: 4.2;
+    }
+    .service-title h5 {
+        font-size: 3.6rem;
+        color: var(--dark-green);
+        align-self: flex-end;
+    }
+    .service-text p {
+        width: 85%;
+    }
+    .service-img-con {
+        padding: 0;
+    }
+    .service-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 2;
+        position: relative;
+    }
+    .spacer {
+        height: 12.5rem;
+        margin-top: -4rem;
+        z-index: 1;
+        background: white;
+    }
+    .bg-2 {
+        background: var(--secondary-bg);
+    }
+    .bundle {
+        padding: 10rem 0;
+    }
+    .bundle p {
+        width: 75%;
+    }
+    .flower-2 {
+        position: absolute;
+        top: -8rem;
+        left: -4rem;
+        width: 30rem;
+        height: auto;
+        z-index: 10;
+        transform: scaleX(-1) rotate(-15deg);
+    }
+</style>

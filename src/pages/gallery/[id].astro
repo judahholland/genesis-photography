@@ -1,0 +1,72 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getAlbumImages } from "../../utils/album";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import IntHero from "../../components/IntHero.astro";
+import Flower1 from '../../assets/images/Asset 5.png';
+
+export async function getStaticPaths() {
+    const albums = await getCollection("albums");
+
+    const paths = Object.values(albums).map((album) => {
+        return {
+            params: {
+                id: album.id,
+            },
+            props: {
+                album,
+            },
+        }
+    })
+
+    return paths;
+}
+
+const { album } = Astro.props;
+const images = await getAlbumImages(album.id)
+---
+<Layout>
+    <IntHero title={album.data.title} imgUrl={album.data.cover} alt={album.data.title} flowerUrl={Flower1} position="100% 50%"/>
+    <div class="back container" href="/gallery">
+        <a href="/gallery">← Back To Galleries</a>
+    </div>
+    <div class="images container row justify-content-between">
+        {
+            images.map((image) => (
+                <Image
+                    src={image}
+                    alt={`Image from ${album.data.title} album`}
+                    format="avif"
+                    quality={50}
+                    class="image col-4"
+                    loading="lazy"
+                />
+            ))
+        } 
+    </div>
+</Layout>
+<style>
+    .back {
+        padding: 4rem 0;
+        
+    }
+    .back a {
+        width: fit-content;
+        background: linear-gradient(to right, var(--light-pink) 0%, var(--light-pink) 100%) 0px 95% / 0px 1px no-repeat;
+        transition: .25s ease;
+        text-decoration: none;
+    }
+    .back a:hover {
+        background-size: 100% 1px;
+    }
+    .images {
+        
+    }
+    .image {
+        height: auto;
+        margin-top: 1rem;
+        object-fit:cover;
+    }
+</style>

@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IntHero from "../components/IntHero.astro";
+import Image from "astro/components/Image.astro";
+import HeroImg from '../assets/images/000_2902.jpg';
+import Flower1 from '../assets/images/Asset 5.png';
+import contactImg from '../assets/images/DSC_1856.jpg'
+---
+<Layout>
+    <IntHero title="Contact Me" imgUrl={HeroImg} alt="Couple standing by water" flowerUrl={Flower1}/>
+    <div class="contact container row">
+        <div class="contact-text col-5">
+            <h2>Ready to book your session?</h2>
+            <p>Have a question or ready to book your session? I’d love to hear from you! Whether you're planning ahead or just exploring your options, feel free to reach out. Fill out the form and I’ll get back to you as soon as possible to chat about your vision and how we can bring it to life. Let’s create something meaningful together!</p>
+            <Image src={contactImg} alt="Woman and her baby"/>
+        </div>
+        <div class="col-7">
+
+        </div>
+    </div>
+</Layout>
+<style>
+    .contact {
+        padding: 10rem 0;
+    }
+    .contact-text img {
+        margin-top: 4rem;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+</style>

@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IntHero from "../components/IntHero.astro";
+import Image from "astro/components/Image.astro";
+import HeroImg from '../assets/images/DSC_1772.jpg';
+import Flower1 from '../assets/images/Asset 5.png';
+import { getCollection } from "astro:content";
+
+const albums = await getCollection("albums");
+const categories = [...new Set(albums.map((item) => item.data.category))];
+---
+<Layout>
+    <IntHero title="The Gallery" imgUrl={HeroImg} alt="Genesis Holland" flowerUrl={Flower1} position="50% 30%"/>
+    <div class="intro container d-flex text-center flex-column align-items-center">
+        <h2>Every story is unique. Every image, a memory.</h2>
+        <p>Take a look through my portfolio to see the moments that mean the most. From maternity glows to brand-new tiny toes, and growing families full of laughter, each gallery captures real life at its best.</p>
+    </div>
+    <nav class="gallery-nav container d-flex flex-wrap justify-content-center">
+        <button type="button" class="nav-link" data-category="all">All</button>
+        {categories.map((category) => (
+            <button type="button" class="nav-link" data-category={category}>
+                {category}
+            </button>
+        ))}
+    </nav>
+    <div id="gallery-container" class="galleries container row">
+        {
+            albums.map((item) => (
+                <a 
+                    href={`/gallery/${item.id}`} 
+                    class="gallery col-4"
+                    data-category={item.data.category}
+                >
+                    <Image
+                    src={item.data.cover}
+                    alt={item.data.title}
+                    quality="mid"
+                    class:list={["gallery-img"]}
+                />
+                <p class="category">{item.data.category}</p>
+                <h3 class="gallery-title">{item.data.title}</h3>
+                </a>
+            ))
+        }
+    </div>
+</Layout>
+<style>
+    .intro {
+        padding: 10rem 0 5rem 0;
+    }
+    .intro h2 {
+        margin-bottom: 2rem;
+    }
+    .intro p {
+        width: 75%;
+        color: var(--p-light);
+    }
+    .gallery-nav {
+        gap: 4rem;
+        padding-bottom: 5rem;
+    }
+    .nav-link {
+        font-family: 'Cinzel Decorative';
+        font-size: 2.4rem;
+        background: linear-gradient(to right, var(--light-pink) 0%, var(--light-pink) 100%) 0px 95% / 0px 1px no-repeat;
+        transition: ease .2s;
+    }
+    .nav-link:hover {
+        background-size: 100% 1px;
+    }
+    .galleries {
+    }
+    .gallery {
+        text-decoration: none;
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+    .gallery-img {
+        width: 100%;
+        height: 30rem;
+        object-fit: cover;
+        object-position: 50% 50%;
+        transition: ease .5s;
+    }
+    .category {
+        font-size: 1.6rem;
+        color: var(--light-pink);
+        font-style: italic;
+        margin-top: 2rem;
+    }
+    .divider {
+        width: 35%;
+        height: .2rem;
+        background: var(--light-pink);
+        margin: 3rem 0 2rem 0;
+    }
+    .gallery-title {
+        width: fit-content;
+        background: linear-gradient(to right, var(--light-pink) 0%, var(--light-pink) 100%) 0px 95% / 0px 1px no-repeat;
+        transition: background .25s ease, transform .5s ease;
+    }
+    .gallery:hover .gallery-img {
+        object-position: 0% 50%;
+    }
+    .gallery:hover .gallery-title {
+        background-size: 100% 1px;
+        transform: translateX(1rem);
+    }
+</style>
+<script is:inline>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const galleryContainer = document.getElementById('gallery-container');
+    const galleryItems = Array.from(galleryContainer.children);
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+        const selectedCategory = link.dataset.category;
+
+        // Sort with selected category items first
+        const sortedItems = [...galleryItems].sort((a, b) => {
+            const aMatch = a.dataset.category === selectedCategory;
+            const bMatch = b.dataset.category === selectedCategory;
+
+            if (selectedCategory === "all") return 0;
+            if (aMatch && !bMatch) return -1;
+            if (!aMatch && bMatch) return 1;
+            return 0;
+        });
+
+        // Clear and re-append in sorted order
+        galleryContainer.innerHTML = "";
+        sortedItems.forEach(item => galleryContainer.appendChild(item));
+        });
+    });
+</script>

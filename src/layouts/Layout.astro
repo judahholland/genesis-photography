@@ -1,6 +1,8 @@
 ---
 import "./typography.css"
 import 'bootstrap/dist/css/bootstrap.css'
+import Header from "../components/header.astro"
+import Footer from "../components/footer.astro"
 ---
 
 <!doctype html>
@@ -13,10 +15,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 		<title>Genesis Holland Photography</title>
 	</head>
 	<body>
+		<Header/>
 		<slot />
+		<Footer/>
 	</body>
 </html>
-
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@100..900&family=Yuji+Syuku&display=swap');
 	
