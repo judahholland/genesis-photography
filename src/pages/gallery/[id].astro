@@ -1,9 +1,8 @@
 ---
-import type { GetStaticPaths } from "astro";
 import { getAlbumImages } from "../../utils/album";
 import { getCollection } from "astro:content";
+import { Image } from 'astro:assets';
 import Layout from "../../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
 import IntHero from "../../components/IntHero.astro";
 import Flower1 from '../../assets/images/Asset 5.png';
 
@@ -29,7 +28,7 @@ const images = await getAlbumImages(album.id)
 ---
 <Layout>
     <IntHero title={album.data.title} imgUrl={album.data.cover} alt={album.data.title} flowerUrl={Flower1} position="100% 50%"/>
-    <div class="back container" href="/gallery">
+    <div class="back container">
         <a href="/gallery">← Back To Galleries</a>
     </div>
     <div class="images container row justify-content-between">

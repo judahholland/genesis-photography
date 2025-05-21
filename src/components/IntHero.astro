@@ -4,8 +4,8 @@ import { getImage, Picture } from "astro:assets";
 
 interface props {
     title: string;
-    imgUrl: string | ImageMetadata;
-    flowerUrl: string | ImageMetadata;
+    imgUrl: ImageMetadata;
+    flowerUrl: ImageMetadata;
     alt: string;
     position: string
 }
@@ -20,8 +20,6 @@ const flowerImg = await getImage({
     src: flowerUrl,
     format: "webp",
 });
-
-
 ---
 <div class="hero container-fluid d-flex align-items-end">
     <div class="row">
