@@ -32,11 +32,11 @@ const categories = [...new Set(albums.map((item) => item.data.category))];
                     data-category={item.data.category}
                 >
                     <Image
-                    src={item.data.cover}
-                    alt={item.data.title}
-                    quality="mid"
-                    class:list={["gallery-img"]}
-                />
+                        src={item.data.cover}
+                        alt={item.data.title}
+                        quality="mid"
+                        class:list={["gallery-img"]}
+                    />
                 <p class="category">{item.data.category}</p>
                 <h3 class="gallery-title">{item.data.title}</h3>
                 </a>
