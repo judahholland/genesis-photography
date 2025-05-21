@@ -1,21 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import IntHero from "../components/IntHero.astro";
+import ButtonDark from "../components/buttonDark.astro";
 import Image from "astro/components/Image.astro";
 import HeroImg from '../assets/images/000_2902.jpg';
 import Flower1 from '../assets/images/Asset 5.png';
-import contactImg from '../assets/images/DSC_1856.jpg'
+import contactImg from '../assets/images/DSC_1856.jpg';
 ---
 <Layout>
     <IntHero title="Contact Me" imgUrl={HeroImg} alt="Couple standing by water" flowerUrl={Flower1}/>
-    <div class="contact container row">
+    <div class="contact container row justify-content-between">
         <div class="contact-text col-5">
             <h2>Ready to book your session?</h2>
             <p>Have a question or ready to book your session? I’d love to hear from you! Whether you're planning ahead or just exploring your options, feel free to reach out. Fill out the form and I’ll get back to you as soon as possible to chat about your vision and how we can bring it to life. Let’s create something meaningful together!</p>
             <Image src={contactImg} alt="Woman and her baby"/>
         </div>
-        <div class="col-7">
-
+        <div class="col-6">
+            <div class="contact-form">
+                <form name="Contact Form">
+                    <div class="form-item">
+                        <input type="text" name="Name" placeholder="Your Name*" required/>
+                    </div>
+                    <div class="form-item">
+                        <input type="email" name="Email" placeholder="Your Email*" required/>
+                    </div>
+                    <div class="form-item">
+                        <input type="tel" name="Phone" placeholder="Phone Number*" required/>
+                    </div>
+                    <div class="form-item">
+                        <select name="Session" id="session-select">
+                            <option value="">Select a session</option>
+                            <option value="Maternity">Maternity</option>
+                            <option value="Newborn">Newborn</option>
+                            <option value="Family">Family</option>
+                            <option value="Birth">Birth</option>
+                            <option value="Baby">Baby</option>
+                            <option value="Motherhood">Motherhood</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <textarea name="Message" placeholder="Comments or questions"/>
+                    </div>
+                    <button class="submit-button" type="submit">
+                        <ButtonDark text="Submit" style="z-index: 1;"/>
+                    </button>
+                </form>
+            </div>
+            <div class="contact-links d-flex flex-column">
+                <a href="mailto:genesishollandphoto@gmail.com" class="contact-link">
+                    <h5>Email</h5>
+                    <p>genesishollandphoto@gmail.com</p>
+                </a>
+                <a href="tel:352-238-7329" class="contact-link">
+                    <h5>Call Me</h5>
+                    <p>(352) 238-7329</p>
+                </a>
+                <div class="contact-link">
+                    <h5>Location</h5>
+                    <p>Brooksville, FL</p>
+                </div>
+                <div class="contact-link">
+                    <h5>Follow Me</h5>
+                    <div class="d-flex align-items-center">
+                        <svg fill="var(--primary-dark)" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1168.737 487.897c44.672-41.401 113.824-36.889 118.9-36.663l289.354-.113 6.317-417.504L1539.65 22.9C1511.675 16.02 1426.053 0 1237.324 0 901.268 0 675.425 235.206 675.425 585.137v93.97H337v451.234h338.425V1920h451.234v-789.66h356.7l62.045-451.233H1126.66v-69.152c0-54.937 14.214-96.112 42.078-122.058" fill-rule="evenodd"></path> </g></svg>
+                        <div style="width: 4rem; height: 1px; background: var(--primary-dark);"/>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="var(--primary-dark)"></path> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="var(--primary-dark)"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="var(--primary-dark)"></path> </g></svg>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </Layout>
@@ -26,7 +78,77 @@ import contactImg from '../assets/images/DSC_1856.jpg'
     .contact-text img {
         margin-top: 4rem;
         width: 100%;
-        height: auto;
+        height: 67.5rem;
         object-fit: cover;
+    }
+    .form-container {
+        width: 100%;
+        padding: 0 2rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .form-item {
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+    form input, form textarea, form select {
+        position: relative;
+        display: block;
+        width: 100%;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 1.4rem .4rem;
+        background-color: transparent;
+        border-bottom: 1.5px solid var(--primary-dark);
+        font-weight: 500;
+        color: var(--primary-dark);
+        font-size: 1.8rem;
+        transition: ease .2s;
+    }
+    form input:focus, form textarea:focus {
+        border-bottom: 2px solid var(--light-pink);
+    }
+    .submit-button {
+        padding: 0;
+        border: 0;
+    }
+    .contact-links {
+        margin-top: 8rem;
+        gap: 2rem;
+    }
+    .contact-link {
+        text-decoration: none;
+    }
+    .contact-link h5 {
+        font-size: 2.4rem;
+    }
+    .contact-link p {
+        width: fit-content;
+        background: linear-gradient(to right, var(--light-pink) 0%, var(--light-pink) 100%) 0px 95% / 0px 1px no-repeat;
+        transition: ease .2s;
+    }
+    .contact-link p:hover {
+        background-size: 100% 1px;
+    }
+    .contact-link p:nth-of-type(3) {
+        background: none;
+    }
+    .contact-link > div {
+        margin-top:2rem;
+        gap: 1rem;
+    }
+    .contact-link svg {
+        width: 30px;
+        height: 30px;
+    }
+    .contact-link svg * {
+        transition: ease .3s;
+    }
+    .contact-link svg:nth-of-type(1):hover {
+        fill: var(--light-pink);
+    }
+    .contact-link svg:nth-of-type(2):hover * {
+        fill: var(--light-pink);
     }
 </style>
